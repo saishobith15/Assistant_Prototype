@@ -2,20 +2,13 @@ import speech_recognition as sr
 import pyttsx3
 import os
 import webbrowser
-
-# Initialize text-to-speech engine
 engine = pyttsx3.init()
-
-# Initialize speech recognizer
 r = sr.Recognizer()
-
 def speak(text):
-    """Speak the given text."""
     engine.say(text)
     engine.runAndWait()
 
 def open_files(drive):
-    """Handle file opening logic."""
     try:
         speak("Name the folder or file to open.")
         with sr.Microphone() as source:
@@ -29,9 +22,8 @@ def open_files(drive):
                 speak("File or folder not found.")
     except Exception as e:
         speak(f"An error occurred: {str(e)}")
-
+        
 def new_main():
-    """Main function for the voice assistant."""
     speak("Hello! I'm your developing assistant. I hope I can help you.")
     while True:
         try:
@@ -62,6 +54,6 @@ def new_main():
             print("Could not understand the audio.")
         except Exception as e:
             print(f"An error occurred: {e}")
-
+            
 if __name__ == "__main__":
     new_main()
